@@ -1,0 +1,132 @@
+<system
+appname=""
+>
+    <initialization>
+        <ddls>
+            <ddl><!--
+                CREATE DATABASE IF NOT EXISTS YourDatabaseName;
+                USE YourDatabaseName;
+                CREATE TABLE IF NOT EXISTS employees (
+                employee_id INT PRIMARY KEY,
+                first_name VARCHAR(50),
+                last_name VARCHAR(50),
+                email VARCHAR(100),
+                hire_date DATE
+                );
+                -->
+
+                Hi"man" hi
+            </ddl>
+            <ddl>
+                <!--
+                CREATE TABLE IF NOT EXISTS departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(50)
+);
+ALTER TABLE employees
+ADD COLUMN department_id INT,
+ADD CONSTRAINT fk_department
+    FOREIGN KEY (department_id)
+    REFERENCES departments(department_id);
+                -->
+            </ddl>
+        </ddls>
+    </initialization>
+    <api-list>
+        <api
+        route="/get-employee"
+        http-method="get"
+        >
+            <dto>
+                <request>
+                    <param
+                    name="id"
+                    data_type="int"
+                    />
+                    <param
+                            name="departnameId"
+                            data_type="int"
+                    />
+
+
+                </request>
+                <response>
+                   <!-- {
+                    id:number;
+                    name:string;
+                    address:string;
+                    departmantid:string;
+                    reporting manager_id:number
+                    }
+                    -->
+                </response>
+            </dto>
+            <sql-query-list>
+                <query identifier="query-employee">
+                    <!-- SELECT employee_id, name,address, departmentid, reporting_manager_id FROM EMPLOYEE
+                    WHERE employee_id = ?; -->
+                </query>
+            </sql-query-list>
+                <java-codelet>
+                    <!--
+
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("My first Java program!!");
+    }
+}
+
+
+                     -->
+                </java-codelet>
+        </api>
+        <api
+                route="/get-employee/test"
+                http-method="post"
+        >
+            <dto>
+                <request>
+                    <param
+                            name="id"
+                            data_type="int"
+                    />
+                    <param
+                            name="departnameId"
+                            data_type="int"
+                    />
+
+
+                </request>
+                <response>
+                    <!-- {
+                     id:number;
+                     name:string;
+                     address:string;
+                     departmantid:string;
+                     reporting manager_id:number
+                     }
+                     -->
+                </response>
+            </dto>
+            <sql-query-list>
+                <query identifier="query-employee">
+                    <!-- SELECT employee_id, name,address, departmentid, reporting_manager_id FROM EMPLOYEE
+                    WHERE employee_id = ?; -->
+                </query>
+            </sql-query-list>
+            <java-codelet>
+                <!--
+
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("My first Java program!!");
+    }
+}
+
+                        -->
+            </java-codelet>
+        </api>
+    </api-list>
+</system>
